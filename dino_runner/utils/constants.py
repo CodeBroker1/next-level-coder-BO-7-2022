@@ -1,6 +1,6 @@
 import pygame
+import pygame
 import os
-
 # Global Constants
 TITLE = "Chrome Dino Runner"
 SCREEN_HEIGHT = 600
