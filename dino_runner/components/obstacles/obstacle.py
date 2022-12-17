@@ -5,12 +5,12 @@ class Obstacles (Sprite):
     def __init__(self,image,type):
      self.image = image
      self.type = type
-     self.rect = self.image [self.type].get_rect()
+     self.rect = self.image[self.type].get_rect()
      self.rect.x = SCREEN_WIDTH 
 
+### define que el obstacle desaparece cuando llega al lado izquierdo de la pantalla
     def update (self,game_speed,obstacles):
      self.rect.x -= game_speed
-
      if self.rect.x < 0:
       obstacles.pop()
         
