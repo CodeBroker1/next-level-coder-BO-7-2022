@@ -1,10 +1,13 @@
 import pygame
 import pygame.font
+import pygame.event
 from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, COLOR, COLOR2, COLOR3
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import Obstaclemanager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 from dino_runner.components.extras.extras_manager import ExtrasManager
+from dino_runner.components.menu import Menu
+
 
 class Game:
     def __init__(self):
@@ -22,6 +25,7 @@ class Game:
         self.player = Dinosaur()
         self.obstacle_manager = Obstaclemanager()
         self.power_up_manager= PowerUpManager()
+        self.menu = Menu()
         self.extras = ExtrasManager()
         self.font = pygame.font.Font(None,30)
         self.font2 = pygame.font.Font(None,30)
@@ -39,13 +43,11 @@ class Game:
         pygame.draw.rect(self.screen,(COLOR3),(940,20,125,43))
 
     def run(self):
-        # Game loop: events - update - draw
         self.playing = True
         while self.playing:
             self.events()
             self.update()
             self.draw()
-            self.menu()
         pygame.quit()
 
     def events(self):     
@@ -89,16 +91,5 @@ class Game:
         self.x_pos_bg -= self.game_speed
 
         
-    def menu(self):
-      if self.playing:
-         self.screen.fill((COLOR2))
-         self.text = self.font.render("Press any Key to Start", True, (0, 0, 0))
-         self.textRect = self.text.get_rect()
-         self.textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
-         self.screen.blit(self.text, self.textRect)
-         pygame.display.update()
-      for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-              print ('jp;a')
                         
                    

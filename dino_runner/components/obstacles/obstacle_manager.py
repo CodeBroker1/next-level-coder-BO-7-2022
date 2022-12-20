@@ -33,7 +33,6 @@ class Obstaclemanager:
           if not game.player.shield:
             pygame.time.delay(300)
             game.playing = False
-            self.death_count += 1
             break
           else:
             self.obstacles.pop()

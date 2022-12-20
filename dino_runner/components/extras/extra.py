@@ -9,7 +9,7 @@ class Extras (Sprite):
      self.image = image
      self.type = type
      self.rect = self.image.get_rect()
-     self.rect.y = random.choice ([20,60])
+     self.rect.y = random.choice ([20,40])
      self.rect.x = SCREEN_WIDTH
 
 
